@@ -1,4 +1,4 @@
-import salesData from "./salesData.json" assert { type: "json" };
+import salesData from "./json/salesData.json" assert { type: "json" };
 //We should now use salesData to calculate total price using map
 
 function totalSales(data) {
