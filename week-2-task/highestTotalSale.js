@@ -1,4 +1,4 @@
-//Calculate the total sales
+//Calculate the highest total sales.
 
 import salesData from "./json/salesData.json" assert { type: "json" };
 
@@ -12,4 +12,10 @@ function totalSales(data) {
 }
 
 const total_sale = totalSales(salesData);
-console.log(total_sale);
+
+//Find the highest sale now
+const highestSale = total_sale.reduce((max, item) => {
+  return item.totalSale > max.totalSale ? item : max;
+});
+
+console.log(highestSale);
