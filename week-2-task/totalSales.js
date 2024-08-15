@@ -1,5 +1,6 @@
+//Calculate the total sales
+
 import salesData from "./json/salesData.json" assert { type: "json" };
-//We should now use salesData to calculate total price using map
 
 function totalSales(data) {
   return data.map((item) => {
