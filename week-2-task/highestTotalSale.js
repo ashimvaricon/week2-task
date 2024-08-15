@@ -1,11 +1,11 @@
-// Finding the product with the highest total sales.
+//Calculating the higest total sales
 
 import { salesByProduct } from "./totalSales.js";
 
 function highestTotalSale(salesByProduct) {
-  return salesByProduct.reduce((acc, item) => {
-    return salesByProduct[item] > salesByProduct[acc] ? item : acc;
-  });
+  const sortedSales = salesByProduct.sort((a, b) => b[1] - a[1]);
+
+  return sortedSales;
 }
 
 console.log(highestTotalSale(salesByProduct));
