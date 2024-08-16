@@ -1,18 +1,18 @@
-// Calculate sales by month
+//Calculating Sales By Month
 
 import salesData from "./json/salesData.json" assert { type: "json" };
 
-function salesByMonth(data, date) {
-  const inputDate = new Date(date + "T00:00:00Z");
-  console.log(inputDate);
-  const month = inputDate.getMonth() + 1;
+const filterSalesByDate = (sales, isoString) => {
+  const date = new Date(isoString);
+  const month = date.getMonth();
+  const year = date.getFullYear();
+  return sales.filter((sale) => {
+    const saleDate = new Date(sale.date);
+    const saleMonth = saleDate.getMonth();
 
-  const year = inputDate.getFullYear();
-
-  return data.filter((record) => {
-    const dates = new Date(record.date);
-    return dates.getMonth() + 1 === month && dates.getFullYear() === year;
+    const saleYear = saleDate.getFullYear();
+    return saleMonth === month && saleYear === year;
   });
-}
-const date = "2023-02-22";
-console.log(salesByMonth(salesData, date));
+};
+
+console.log(filterSalesByDate(salesData, "2023-02-03T03:48:51.598Z"));
